@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+// import Navbar from "./Navbar";
+// import Greeting from "./Greeting";
+import Counter from "./Counter"
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div>
+    //   <Navbar />
+    //   <Greeting name="Kanit !" age="21" />
+    //   <Greeting name="Ken !" age= {16} />
+    //   <Greeting />
+    // </div>
+
+
+    <div>
+    <Counter step={5} />
+    <Counter  step={10}/>
     </div>
   );
-}
+};
 
 export default App;
