@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./style.css";
 // how to use hook
 const Counter = ({ step = 1 }) => {
   const [count, setCount] = useState(0);

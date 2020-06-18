@@ -2,6 +2,7 @@ Setup This project load nodeModule
 
 ## npm i 
 
+## คนจริง ต้อง dev บน master (Production) ;) :) :) 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
