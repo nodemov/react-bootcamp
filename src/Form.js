@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Form = () => {
   const [InputField, setInputField] = useState({
-      email:'',
-      password:'',
-      term:false
+    email: "",
+    password: "",
+    term: false,
   });
 
   //   const [Email, setEmail] = useState("");
@@ -18,16 +19,16 @@ const Form = () => {
   //     setPassword(e.target.value);
   //   };
 
-const handleChange = (e) =>{
+  const handleChange = (e) => {
     const { target } = e;
     const { name } = target;
-    const value = name === 'term' ? target.checked : target.value;
+    const value = name === "term" ? target.checked : target.value;
 
     setInputField({
-        ...InputField,
-        [name]: value
+      ...InputField,
+      [name]: value,
     });
-}
+  };
 
   const OnSubmitForm = (e) => {
     e.preventDefault();
@@ -35,24 +36,46 @@ const handleChange = (e) =>{
     //   email: Email,
     //   password: Password,
     // };
-    
-    console.log(InputField);
+
+    axios
+      .post("http://localhost/phpReact/post.php", {
+        data: InputField,
+      })
+      .then((res) => console.log("From server ", res.data));
+
+    console.log("From Client ", InputField);
   };
 
   return (
     <div className="mx-auto w-50 mt-2 mb-4">
       <form onSubmit={OnSubmitForm}>
         <div className="form-group">
-        <code>Form Object : {JSON.stringify(InputField)}</code><br/>
+          <code>Form Object : {JSON.stringify(InputField)}</code>
+          <br />
           <label>Email address</label>
-          <input type="email" name="email" className="form-control" onChange={handleChange} />
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group">
           <label>Password</label>
-          <input type="password" name="password" className="form-control" onChange={handleChange} />
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            onChange={handleChange}
+          />
         </div>
         <div className="form-group form-check">
-          <input type="checkbox" name="term" className="form-check-input" onChange={handleChange} />
+          <input
+            type="checkbox"
+            name="term"
+            className="form-check-input"
+            onChange={handleChange}
+          />
           <label className="form-check-label">Check me out</label>
         </div>
         <button type="submit" className="btn btn-primary">
